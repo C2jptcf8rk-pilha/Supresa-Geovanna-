@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para o Meu Amor</title>
+    <style>
+        /* Configurações do Fundo Rosa */
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Arial', sans-serif;
+            overflow-x: hidden;
+            color: #333;
+            text-align: center;
+        }
+
+        /* Container Principal */
+        .container {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(5px);
+            z-index: 10;
+            max-width: 90%;
+            width: 560px;
+            margin: 20px;
+        }
+
+        /* Título em Vermelho */
+        h1 {
+            color: #ff0000; 
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+
+        .subtitulo {
+            font-size: 1.1rem;
+            color: #d63384;
+            font-style: italic;
+            margin-bottom: 25px;
+        }
+
+        /* Moldura do Vídeo (Responsiva para celular) */
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* Proporção 16:9 */
+            padding-top: 30px; 
+            height: 0; 
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Corações Flutuantes */
+        .coracao {
+            position: absolute;
+            color: #ff4d6d;
+            font-size: 24px;
+            animation: flutuar 6s linear infinite;
+            bottom: -50px;
+            opacity: 0;
+            z-index: 1;
+        }
+
+        @keyframes flutuar {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.8;
+            }
+            90% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(-110vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Título solicitado -->
+        <h1>Wesley te ama muito Geovanna ❤️</h1>
+        <p class="subtitulo">"Pro nosso futuro eu já fiz planos..."</p>
+        
+        <!-- Player do Videoclipe Oficial -->
+        <div class="video-container">
+            <iframe 
+                src="https://www.youtube.com/embed/g8fW-iO9lG0" 
+                title="BK - Planos" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+            </iframe>
+        </div>
+    </div>
+
+    <script>
+        // Função que cria a chuva de corações
+        function criarCoracoes() {
+            const simbolos = ['❤️', '💖', '💝', '💕'];
+            const coracao = document.createElement('div');
+            coracao.classList.add('coracao');
+            
+            coracao.innerText = simbolos[Math.floor(Math.random() * simbolos.length)];
+            coracao.style.left = Math.random() * 100 + 'vw';
+            
+            const tamanho = Math.random() * 20 + 15;
+            coracao.style.fontSize = tamanho + 'px';
+            
+            coracao.style.animationDuration = Math.random() * 3 + 4 + 's';
+            
+            document.body.appendChild(coracao);
+            
+            setTimeout(() => {
+                coracao.remove();
+            }, 6000);
+        }
+
+        // Gera corações a cada 300 milissegundos
+        setInterval(criarCoracoes, 300);
+    </script>
+
+</body>
+</html>
